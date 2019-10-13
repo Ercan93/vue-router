@@ -1,20 +1,20 @@
-# Introduction
+# Giriş
 
 <Bit/>
 
-:::tip VERSION NOTE
-For TypeScript users, `vue-router@3.0+` requires `vue@2.5+`, and vice versa.
+:::tip SÜRÜM BİLGİSİ
+TypeScript kullanıcılarına, `vue-router@3.0+` için `vue@2.5+` gereklidir.
 :::
 
-Vue Router is the official router for [Vue.js](http://vuejs.org). It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze. Features include:
+Vue Router, [Vue.js](http://vuejs.org)'in resmi yönlendiricisidir . Vue.js çekirdeğiyle olan derin entegrasyonu, tek sayfalık bir uygulama oluşturmayı çok kolaylaştırıyor. Sahip olduğu özellikler:
 
-- Nested route/view mapping
-- Modular, component-based router configuration
-- Route params, query, wildcards
-- View transition effects powered by Vue.js' transition system
-- Fine-grained navigation control
-- Links with automatic active CSS classes
-- HTML5 history mode or hash mode, with auto-fallback in IE9
-- Customizable Scroll Behavior
+- İç içe route/view düzenleme
+- Modüler, component tabanlı router yapısı
+- Route(rota) parametleri, sorgular, joker karakterler
+- Vue.js transition özelliği ile geçiş efektlerini görüntüleme
+- İnce detaylı navigasyon kontrolü
+- Otomatik olarak atanan aktif CSS class'ları
+- HTML5 history modu veya hash modunun IE9 ile uyumluluğu
+- Özelleştirilebilir Scroll hareketleri
 
-[Get started](./guide/) or play with the [examples](https://github.com/vuejs/vue-router/tree/dev/examples) (see [`README.md`](https://github.com/vuejs/vue-router/) to run them).
+[Başlarken](./guide/) yada [örnekler](https://github.com/vuejs/vue-router/tree/dev/examples) ile oynayın.(Örnekleri çalıştırmak için [`README.md`](https://github.com/vuejs/vue-router/)'ye bir bakın).
