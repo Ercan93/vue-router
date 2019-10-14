@@ -17,4 +17,4 @@ Vue Router, [Vue.js](http://vuejs.org)'in resmi yönlendiricisidir . Vue.js çek
 - HTML5 history modu veya hash modunun IE9 ile uyumluluğu
 - Özelleştirilebilir Scroll hareketleri
 
-[Başlarken](./guide/) yada [örnekler](https://github.com/vuejs/vue-router/tree/dev/examples) ile oynayın.(Örnekleri çalıştırmak için [`README.md`](https://github.com/vuejs/vue-router/)'ye bir bakın).
+[Şimdi Başlayın](./guide/) yada [örnekleri](https://github.com/vuejs/vue-router/tree/dev/examples) deneyin. (Örnekleri çalıştırmak için [`README.md`](https://github.com/vuejs/vue-router/)'ye bir bakın).
