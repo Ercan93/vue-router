@@ -1,6 +1,6 @@
-# Named Routes
+# Adlandırılmış Rotalar
 
-Sometimes it is more convenient to identify a route with a name, especially when linking to a route or performing navigations. You can give a route a name in the `routes` options while creating the Router instance:
+Bazen, özellikle bir rotaya bağlanırken veya navigasyonlar yaparken adı olan bir rota tanımlamak daha uygundur. Router instance'ı oluştururken `routes` seçeneğinin içerisinde rotayı adlandırabiliriz:
 
 ``` js
 const router = new VueRouter({
@@ -14,18 +14,18 @@ const router = new VueRouter({
 })
 ```
 
-To link to a named route, you can pass an object to the `router-link` component's `to` prop:
+Adlandırılmış bir rotaya bağlanmak için bir objeyi `router-link` bileşenin `to` prop'ına iletebilirsiniz:
 
 ``` html
 <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
 ```
 
-This is the exact same object used programatically with `router.push()`:
+Aslında bu programlama açısından `router.push()` ile aynı şeydir:
 
 ``` js
 router.push({ name: 'user', params: { userId: 123 }})
 ```
 
-In both cases, the router will navigate to the path `/user/123`.
+Her iki durumda da, router `/user/123` yoluna gidecektir.
 
-Full example [here](https://github.com/vuejs/vue-router/blob/dev/examples/named-routes/app.js).
+Tam bir örnek için [buraya](https://github.com/vuejs/vue-router/blob/dev/examples/named-routes/app.js) bir göz atabilirsiniz.
