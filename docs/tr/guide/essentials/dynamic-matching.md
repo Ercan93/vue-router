@@ -85,11 +85,11 @@ _Yıldız işaretli_ rotaları kullanırken, yönlendirmelerin doğru sırada ol
 _Yıldız işareti_ kullandığınızda, `$route.params`'a otomatik olarak `pathMatch` adlı bir parametre eklenir. _Yıldız işareti_ ile eşlenen url'lerin geri kalanını içerir:
 
 ```js
-// { path: '/user-*' } rotası verildi
+// { path: '/user-*' } rotası verildiğini varsayalım
 this.$router.push('/user-admin')
 this.$route.params.pathMatch // 'admin'
 
-// { path: '*' } rotası verildi
+// { path: '*' } rotası verildiğini varsayalım
 this.$router.push('/non-existing')
 this.$route.params.pathMatch // '/non-existing'
 ```

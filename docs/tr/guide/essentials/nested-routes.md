@@ -1,6 +1,6 @@
-# Nested Routes
+# İç içe rotalar
 
-Real app UIs are usually composed of components that are nested multiple levels deep. It is also very common that the segments of a URL corresponds to a certain structure of nested components, for example:
+Gerçek bir uygulamanın kullanıcı arabirimi genellikle hiyerarşik olarak iç içe olan component'lerin birden çok düzeyinden oluşur. Benzer şekilde, URL'deki her segmentinin dinamik rotaları, aşağıdakiler gibi bir yapıdaki iç içe gelişmiş katman component'lerine karşılık gelir:
 
 ```
 /user/foo/profile                     /user/foo/posts
@@ -13,9 +13,9 @@ Real app UIs are usually composed of components that are nested multiple levels 
 +------------------+                  +-----------------+
 ```
 
-With `vue-router`, it is very simple to express this relationship using nested route configurations.
+`vue-router` ile, bu ilişkiyi iç içe rota yapılandırmaları kullanarak ifade etmek çok basittir.
 
-Given the app we created in the last chapter:
+Önceki bölümde oluşturduğumuz uygulamaya bir bakalım:
 
 ``` html
 <div id="app">
@@ -35,20 +35,20 @@ const router = new VueRouter({
 })
 ```
 
-The `<router-view>` here is a top-level outlet. It renders the component matched by a top level route. Similarly, a rendered component can also contain its own, nested `<router-view>`. For example, if we add one inside the `User` component's template:
+Burada `<router-view>`, üst düzey rotaya karşılık gelen component'in çıkış noktasını temsil etmektedir.Bu, üst düzey rotaya uyan component'leri işlemektedir(render eder). Benzer şekilde render edilmiş bir component'te kendi içinde `<router-view>` içerebilir. Örneğin `User` component şablonunu biraz değiştirelim:
 
 ``` js
 const User = {
   template: `
     <div class="user">
-      <h2>User {{ $route.params.id }}</h2>
+      <h2>Kullanıcı {{ $route.params.id }}</h2>
       <router-view></router-view>
     </div>
   `
 }
 ```
 
-To render components into this nested outlet, we need to use the `children` option in `VueRouter` constructor config:
+Component'leri bu iç içe noktada görüntülemek için, `VueRouter` oluşturucu yapısındaki `children` seçeneğini kullanmamız gerekir :
 
 ``` js
 const router = new VueRouter({
@@ -56,14 +56,14 @@ const router = new VueRouter({
     { path: '/user/:id', component: User,
       children: [
         {
-          // UserProfile will be rendered inside User's <router-view>
-          // when /user/:id/profile is matched
+          // rota /user/:id/profile ile eşleştiği zaman
+          // UserProfile component'i, User'ın içindeki <router-view>'de işlenecektir.
           path: 'profile',
           component: UserProfile
         },
         {
-          // UserPosts will be rendered inside User's <router-view>
-          // when /user/:id/posts is matched
+          // rota /user/:id/posts ile eşleştiği zaman
+          // UserPosts component'i, User'ın içindeki <router-view>'de işlenecektir.
           path: 'posts',
           component: UserPosts
         }
@@ -73,11 +73,11 @@ const router = new VueRouter({
 })
 ```
 
-**Note that nested paths that start with `/` will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.**
+**`/` ile başlayan iç içe giden yolların, kök yolları olarak kabul edildiğini unutmayın. Bu, iç içe geçmiş bir URL kullanmak zorunda kalmadan iç içe component kullanmanıza olanak tanır.**
 
-As you can see the `children` option is just another Array of route configuration objects like `routes` itself. Therefore, you can keep nesting views as much as you need.
+Gördüğünüz gibi `children` seçeneği, rotaların kendisi gibi `routes` yapılandırma nesnelerinin bir başka dizisidir. Bu nedenle istediğiniz kadar iç içe görüntüleme elde edebilirsiniz.
 
-At this point, with the above configuration, when you visit `/user/foo`, nothing will be rendered inside `User`'s outlet, because no sub route is matched. Maybe you do want to render something there. In such case you can provide an empty subroute path:
+Bu noktada, yukarıdaki yapılandırmada `/user/foo` adresini ziyaret ettiğinizde, hiçbir alt rota eşleşmediği için `User`'ın çıkışında(içerisindeki router-view'da) hiçbir şey görüntülenmez. Orada bir şey görüntülemek istiyorsanız, boş bir alt kök yolu ayarlayabilirsiniz:
 
 ``` js
 const router = new VueRouter({
@@ -85,15 +85,15 @@ const router = new VueRouter({
     {
       path: '/user/:id', component: User,
       children: [
-        // UserHome will be rendered inside User's <router-view>
-        // when /user/:id is matched
+        // rota /user/:id ile eşleştiğinde
+        // UserHome component'i, User'ın  içindeki <router-view>'da görüntülenecektir.
         { path: '', component: UserHome },
 
-        // ...other sub routes
+        // ...diğer alt rotalar
       ]
     }
   ]
 })
 ```
 
-A working demo of this example can be found [here](https://jsfiddle.net/yyx990803/L7hscd8h/).
+Örneğin çalışan bir demosunu [burada](https://jsfiddle.net/yyx990803/L7hscd8h/) bulabilirsiniz.
